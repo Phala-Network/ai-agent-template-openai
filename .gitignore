@@ -1,0 +1,22 @@
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Hardhat files
+cache
+artifacts
+
+# Phat
+.phat
+dist
+polkadot-account.json
+
+tmp

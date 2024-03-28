@@ -1,0 +1,22 @@
+{
+  "name": "phat-gpt-template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "phat-fn build --experimentalAsync",
+    "test": "tsx src/test.ts",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@phala/fn": "^0.2.17",
+    "dotenv": "^16.4.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "openai": "^4.28.4"
+  }
+}
