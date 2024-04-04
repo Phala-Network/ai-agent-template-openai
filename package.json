@@ -8,7 +8,8 @@
   "scripts": {
     "build": "phat-fn build --experimentalAsync",
     "test": "tsx src/test.ts",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "publish": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
   },
   "devDependencies": {
     "@phala/fn": "^0.2.17",
