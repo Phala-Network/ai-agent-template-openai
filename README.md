@@ -27,7 +27,6 @@
 
 ## 🤖 What Is This?!
 
----
 <div align="center">
   <img height="240" src="https://www.jlwranglerforums.com/forum/attachments/zoolander-gif.325299/">
 </div>
