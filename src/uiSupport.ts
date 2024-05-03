@@ -4,11 +4,11 @@ export function renderHtml(content: string): string {
     <html lang="en">
         <head>
             <meta charset="utf-8" />
-            <title>AI-Agent Contract Demo UI</title>
+            <title>AI Agent Contract Demo UI</title>
         </head>
         <body>
             <div align="center">
-                <p>"OpenAI AI-Agent Contract hosted on <a href="https://github.com/Phala-Network/ai-agent-template-openai">Phala Network</a>, a DePIN infrastructure for hosting AI-Agents."</p>
+                <p>"OpenAI AI Agent Contract hosted on <a href="https://github.com/Phala-Network/ai-agent-template-openai">Phala Network</a>, an AI Coprocessor for hosting AI Agents."</p>
                 <img src="https://i.imgur.com/8B3igON.png" width="600" alt="AI-Agent Contract" />
                 <p>${content}</p>
             </div>

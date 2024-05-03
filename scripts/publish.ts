@@ -22,7 +22,7 @@ try {
 
       if (match) {
         const ipfsCid = match[1];
-        console.log(`\nAI-Agent deployed at: https://frames.phatfn.xyz/ipfs/${ipfsCid}`);
+        console.log(`\nAI Agent Contract deployed at: https://agents.phala.network/ipfs/${ipfsCid}`);
         console.log(`\nMake sure to add your secrets to ensure your AI-Agent works properly.`);
       } else {
         console.log('IPFS CID not found');
