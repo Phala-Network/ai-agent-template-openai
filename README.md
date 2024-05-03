@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/Phala-Network/ai-agent-template-langchain">
-    <h1>AI-Agent Contract Template with OpenAI</h1>
+    <h1>AI Agent Contract Template with OpenAI</h1>
     <img height="320" src="./public/AI-Agent-Contract.jpg" />
     <br />
   </a>
@@ -9,7 +9,7 @@
     <br />
   </a>
   <p align="center">
-    Host your AI-Agent Contract on Phala's decentralized serverless cloud.
+    Host your AI Agent Contract on Phala's decentralized serverless cloud.
     <br />
     <a href="https://github.com/Phala-Network/ai-agent-template-langchain"><strong>Explore the docs »</strong></a>
     <br />
@@ -31,7 +31,7 @@
   <img height="240" src="https://www.jlwranglerforums.com/forum/attachments/zoolander-gif.325299/">
 </div>
 
-The OpenAI AI-Agent template is a **MINIMAL** template to build an AI-Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI-Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
+The OpenAI AI Agent template is a **MINIMAL** template to build an AI Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
 
 - 💨 Ship Fast: Build and ship with familiar toolchain in minutes
 - ⛑️ Secure: Execution guarded by rock solid TEE / Intel SGX
@@ -116,35 +116,35 @@ POST RESULT: {
 }
 ```
 
-### Publish Your AI-Agent
-Upload your compiled AI-Agent code to IPFS.
+### Publish Your AI Agent
+Upload your compiled AI Agent code to IPFS.
 ```shell
 npm run publish
 ```
 
-Upon a successful upload, the command should show the URL to access your AI-Agent.
-> AI-Agent deployed at: https://frames.phatfn.xyz/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0
+Upon a successful upload, the command should show the URL to access your AI Agent.
+> AI Agent deployed at: https://agents.phala.network/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0
 >
-> Make sure to add your secrets to ensure your AI-Agent works properly.
+> Make sure to add your secrets to ensure your AI Agent works properly.
 
 <details>
 <summary>New to thirdweb?</summary>
 We use <a href="https://thirdweb.com/dashboard/infrastructure/storage">thirdweb Storage</a> to host IPFS contents. If you are new to thirdweb, the command will guide you to create your account or login to your existing account from the browser. (You may need to forward port 8976 if you are accessing a remote console via SSH.)
 </details>
 
-### Access the Published AI-Agent
+### Access the Published AI Agent
 
-Once published, your AI-Agent is available at the URL: `https://frames.phatfn.xyz/ipfs/<your-cid>`. You can get it from the "Publish to IPFS" step.
+Once published, your AI Agent is available at the URL: `https://agents.phala.network/ipfs/<your-cid>`. You can get it from the "Publish to IPFS" step.
 
 You can test it with `curl`.
 
 ```bash
-curl https://frames.phatfn.xyz/ipfs/<your-cid>
+curl https://agents.phala.network/ipfs/<your-cid>
 ```
 
 ### Add Secrets
 
-By default, all the compiled JS code is visible for anyone to view if they look at IPFS CID. This makes private info like API keys, signer keys, etc. vulnerable to be stolen. To protect devs from leaking keys, we have added a field called `secret` in the `Request` object. It allows you to store secrets in a vault for your AI-Agent to access.
+By default, all the compiled JS code is visible for anyone to view if they look at IPFS CID. This makes private info like API keys, signer keys, etc. vulnerable to be stolen. To protect devs from leaking keys, we have added a field called `secret` in the `Request` object. It allows you to store secrets in a vault for your AI Agent to access.
 
 <details>
 <summary><b>How to Add Secrets</b></summary>
@@ -152,7 +152,7 @@ By default, all the compiled JS code is visible for anyone to view if they look 
 The steps to add a `secret` is simple. We will add the [OpenAI](https://platform.openai.com/docs/quickstart?context=node) API Key in this example by creating a secret JSON object with the `openaiApiKey`:
 
 ```json
-{"openApiKey": "<OPENAI_API_KEY>"}
+{"openaiApiKey": "<OPENAI_API_KEY>"}
 ```
 
 Then in your frame code, you will be able to access the secret key via `req.secret` object:
@@ -163,14 +163,14 @@ async function POST(req: Request): Promise<Response> {
 }
 ```
 
-> **Note**: Before continuing, make sure to publish your compiled AI-Agent JS code, so you can add secrets to the CID.
+> **Note**: Before continuing, make sure to publish your compiled AI Agent JS code, so you can add secrets to the CID.
 
 **Open terminal**
-Use `curl` to `POST` your secrets to `https://frames.phatfn.xyz/vaults`. Replace `IPFS_CID` with the CID to the compile JS code in IPFS, and replace `<OPENAI_API_KEY>` with your OpenAI API key.
+Use `curl` to `POST` your secrets to `https://agents.phala.network/vaults`. Replace `IPFS_CID` with the CID to the compile JS code in IPFS, and replace `<OPENAI_API_KEY>` with your OpenAI API key. Note that you can name the secret field name something other than `openaiApiKey`, but you will need to access the key in your `index.ts` file with the syntax `req.secret?.<your-secret-field-name> as string`
 
 The command will look like this:
 ```shell
-curl https://frames.phatfn.xyz/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"apiKey": "<OPENAI_API_KEY>"}}'
+curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"openaiApiKey": "<OPENAI_API_KEY>"}}'
 # Output:
 # {"token":"e85ae53d2ba4ca8d","key":"e781ef31210e0362","succeed":true}
 ```
@@ -179,28 +179,36 @@ The API returns a `token` and a `key`. The `key` is the id of your secret. It ca
 
 To verify the secret, run the following command where `key` and `token` are replaced with the values from adding your `secret` to the vault.
 ```shell
-curl https://frames.phatfn.xyz/vaults/<key>/<token>
+curl https://agents.phala.network/vaults/<key>/<token>
 ```
 
 Expected output:
 ```shell
-{"data":{"apiKey":"<OPENAI_API_KEY>"},"succeed":true}
+{"data":{"openaiApiKey":"<OPENAI_API_KEY>"},"succeed":true}
 ```
 
 If you are using secrets, make sure that your URL is set in the following syntax where `cid` is the IPFS CID of your compiled JS file and `key` is the `key` from adding secrets to your vault.
 ```text
-https://frames.phatfn.xyz/ipfs/<cid>?key=<key>
+https://agents.phala.network/ipfs/<cid>?key=<key>
 ```
 
 Example:
-https://frames.phatfn.xyz/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?key=c0c0105ba56276cd&chatQuery=When%20did%20humans%20land%20on%20the%20moon
+https://agents.phala.network/ipfs/Qma2WjqWqW8wYG2tEQ9YFUgyVrMDA9VzvkkdeFny7Smn3R/0?key=686df81d326fa5f2&chatQuery=When%20did%20humans%20land%20on%20the%20moon
 
 </details>
+
+### Access Queries
+To help create custom logic, we have an array variable named `queries` that can be accessed in the `Request` class. To access the `queries` array variable `chatQuery` value at index `0`, the syntax will look as follows:
+```typescript
+const query = req.queries.chatQuery[0] as string;
+```
+The example at https://agents.phala.network/ipfs/Qma2WjqWqW8wYG2tEQ9YFUgyVrMDA9VzvkkdeFny7Smn3R/0?key=686df81d326fa5f2&chatQuery=When%20did%20humans%20land%20on%20the%20moon will have a value of `When did humans land on the moon`. `queries` can have any field name, so `chatQuery` is just an example of a field name and not a mandatory name, but remember to update your `index.ts` file logic to use your expected field name.
+
 
 ## FAQ
 
 <details>
-<summary><b>What packages can I use in the ai-agent server?</b></summary>
+<summary><b>What packages can I use in the AI Agent server?</b></summary>
 <ul>
   <li>Most of the npm packages are supported: viem, onchainkit, ….</li>
   <li>Some packages with some advanced features are not supported:</li>
@@ -220,7 +228,7 @@ https://frames.phatfn.xyz/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?
   <li>Available features: ES2023, async, fetch, setTimeout, setInterval, bigint</li>
   <li>Resource limits</li>
   <ul>
-    <li>Max execution time 10s</li>
+    <li>Max execution time ~30s</li>
     <li>Max memory usage: 16 mb</li>
     <li>Max code size: 500 kb</li>
     <li>Limited CPU burst: CPU time between async calls is limited. e.g. Too complex for-loop may hit the burst limit.</li>
@@ -231,7 +239,7 @@ https://frames.phatfn.xyz/ipfs/QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?
 <details>
 <summary><b>Why is the serverless platform secure?</b></summary>
 <ul>
-  <li>Your AI-Agent code on is fully secure, private, and permissionless. Nobody can manipulate your program, steal any data from it, or censor it.</li>
+  <li>Your AI Agent code on is fully secure, private, and permissionless. Nobody can manipulate your program, steal any data from it, or censor it.</li>
   <li>Security: The code is executed in the decentralized TEE network running on Phala Network. It runs code inside a secure blackbox (called enclave) created by the CPU. It generates cryptographic proofs verifiable on Phala blockchain. It proves that the hosted code is exactly the one you deployed.</li>
   <li>Privacy: You can safely put secrets like API keys or user privacy on Phala Network. The code runs inside TEE hardware blackboxs. The memory of the program is fully encrypted by the TEE. It blocks any unauthorized access to your data.</li>
   <li>Learn more at <a href="https://phala.network">Phala Network Homepage</a></li>
