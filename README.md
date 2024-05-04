@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/Phala-Network/ai-agent-template-langchain">
+  <a href="https://github.com/Phala-Network/ai-agent-template-openai">
     <h1>AI Agent Contract Template with OpenAI</h1>
     <img height="320" src="./public/AI-Agent-Contract.jpg" />
     <br />
@@ -11,12 +11,12 @@
   <p align="center">
     Host your AI Agent Contract on Phala's decentralized serverless cloud.
     <br />
-    <a href="https://github.com/Phala-Network/ai-agent-template-langchain"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Phala-Network/ai-agent-template-openai"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?key=c0c0105ba56276cd&chatQuery=When%20did%20humans%20land%20on%20the%20moon">View Demo</a>
     ·
-    <a href="https://github.com/Phala-Network/ai-agent-template-langchain/issues">Report Bug</a>
+    <a href="https://github.com/Phala-Network/ai-agent-template-openai/issues">Report Bug</a>
     ·
     <a href="https://discord.gg/DXGGJajW">Discord</a>
   </p>
