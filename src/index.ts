@@ -7,11 +7,12 @@ async function GET(req: Request): Promise<Response> {
     const secret = req.queries?.key ?? '';
     const openaiApiKey = req.secret?.openaiApiKey as string;
     const openai = new OpenAI({ apiKey: openaiApiKey })
+    const openAiModel = req.queries.openAiModel[0] as string ?? 'gpt-4o';
     const query = req.queries.chatQuery[0] as string;
 
     const completion = await openai.chat.completions.create({
         messages: [{ role: "system", content: `${query}` }],
-        model: 'gpt-3.5-turbo',
+        model: `${openAiModel}`,
     });
 
     return new Response(renderHtml(completion.choices[0].message.content as string))
@@ -21,11 +22,12 @@ async function POST(req: Request): Promise<Response> {
     const secret = req.queries?.key ?? '';
     const openaiApiKey = req.secret?.openaiApiKey as string;
     const openai = new OpenAI({ apiKey: openaiApiKey })
+    const openAiModel = req.queries.openAiModel[0] as string ?? 'gpt-4o';
     const query = req.queries.chatQuery[0] as string;
 
     const completion = await openai.chat.completions.create({
         messages: [{ role: "system", content: `${query}` }],
-        model: 'gpt-3.5-turbo',
+        model: `${openAiModel}`,
     });
 
     return new Response(renderHtml(completion.choices[0].message.content as string))
