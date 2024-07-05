@@ -9,15 +9,16 @@
     "build": "phat-fn build --experimentalAsync",
     "test": "tsx src/test.ts",
     "lint": "tsc --noEmit",
-    "publish": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
+    "publish-agent": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
   },
   "devDependencies": {
-    "@phala/fn": "^0.2.19",
+    "@phala/fn": "^0.2.20",
     "dotenv": "^16.4.5",
+    "thirdweb": "^5.32.3",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "openai": "^4.47.1"
+    "openai": "^4.52.3"
   }
 }

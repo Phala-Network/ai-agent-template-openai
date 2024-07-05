@@ -4,7 +4,8 @@ import { spawn } from 'child_process'
 try {
   const command = 'npx thirdweb upload dist/index.js'
   const childProcess = spawn(command, { shell: true })
-
+  console.log(`Running command: ${command}`)
+  console.log(`This may require you to log into thirdweb and will take some time to publish to IPFS...`)
   childProcess.stdout.on('data', (data) => {
     process.stdout.write(data)
   })
@@ -23,7 +24,8 @@ try {
       if (match) {
         const ipfsCid = match[1];
         console.log(`\nAI Agent Contract deployed at: https://agents.phala.network/ipfs/${ipfsCid}`);
-        console.log(`\nMake sure to add your secrets to ensure your AI-Agent works properly.`);
+        console.log(`\nMake sure to add your secrets to ensure your AI-Agent works properly. Use syntax:`);
+        console.log(`\n\ncurl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"openaiApiKey": "OPENAI_API_KEY"}}'`);
       } else {
         console.log('IPFS CID not found');
       }
