@@ -7,6 +7,7 @@ async function execute(inputObj: any) {
     return await main(inputJson)
 }
 
+// Sample body input for a POST request
 const sampleInput = {
     "untrustedData": {
         "fid": 2,

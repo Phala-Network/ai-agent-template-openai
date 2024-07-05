@@ -25,7 +25,7 @@ try {
         const ipfsCid = match[1];
         console.log(`\nAI Agent Contract deployed at: https://agents.phala.network/ipfs/${ipfsCid}`);
         console.log(`\nMake sure to add your secrets to ensure your AI-Agent works properly. Use syntax:`);
-        console.log(`\n\ncurl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"openaiApiKey": "OPENAI_API_KEY"}}'`);
+        console.log(`\n\ncurl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "${ipfsCid}", "data": {"openaiApiKey": "OPENAI_API_KEY"}}'`);
       } else {
         console.log('IPFS CID not found');
       }
