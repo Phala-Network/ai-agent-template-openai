@@ -12,7 +12,7 @@
     "publish-agent": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
   },
   "devDependencies": {
-    "@phala/fn": "^0.2.20",
+    "@phala/fn": "^0.2.21",
     "dotenv": "^16.4.5",
     "thirdweb": "^5.32.3",
     "tsx": "^4.7.1",
