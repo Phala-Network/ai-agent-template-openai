@@ -13,7 +13,7 @@ async function test() {
         path: '/ipfs/CID',
         queries: {
             chatQuery: ["When did humans land on the moon?"],
-            openAiModel: ["gpt-4o"]
+            openAiModel: [process.env.OPENAI_MODEL]
         },
         secret: { openaiApiKey: process.env.OPENAI_API_KEY },
         headers: {},
