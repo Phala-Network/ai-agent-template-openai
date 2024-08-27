@@ -1,10 +1,12 @@
 // Call Thirdweb upload command to deploy compiled frame
 import { spawn } from 'child_process'
+import 'dotenv/config'
 
 try {
-  const command = 'npx thirdweb upload dist/index.js'
+  const gatewayUrl = 'https://wapo-testnet.phala.network'
+  const command = `npx thirdweb upload dist/index.js -k ${process.env.THIRDWEB_API_KEY}`
   const childProcess = spawn(command, { shell: true })
-  console.log(`Running command: ${command}`)
+  console.log(`Running command: npx thirdweb upload dist/index.js`)
   console.log(`This may require you to log into thirdweb and will take some time to publish to IPFS...`)
   childProcess.stdout.on('data', (data) => {
     process.stdout.write(data)
@@ -23,9 +25,8 @@ try {
 
       if (match) {
         const ipfsCid = match[1];
-        console.log(`\nAI Agent Contract deployed at: https://agents.phala.network/ipfs/${ipfsCid}`);
-        console.log(`\nMake sure to add your secrets to ensure your AI-Agent works properly. Use syntax:`);
-        console.log(`\n\ncurl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "${ipfsCid}", "data": {"openaiApiKey": "OPENAI_API_KEY"}}'`);
+        console.log(`\nAgent Contract deployed at: ${gatewayUrl}/ipfs/${ipfsCid}`);
+        console.log(`\nIf your agent requires secrets, ensure to do the following:\n1) Edit the setSecrets.ts file to add your secrets\n2) Set the variable AGENT_CID=${ipfsCid} in the .env file\n3) Run command: npm run set-secrets`);
       } else {
         console.log('IPFS CID not found');
       }
