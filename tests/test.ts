@@ -11,7 +11,7 @@ async function test() {
             // Choose from any model listed here https://platform.openai.com/docs/models
             model: ["gpt-4o"]
         },
-        secret: { openaiApiKey: process.env.OPENAI_API_KEY },
+        secret: { openaiApiKey: 'YOUR_OPENAI_API_KEY' },
         headers: {},
     })
     console.log('GET RESULT:', JSON.parse(getResult))
