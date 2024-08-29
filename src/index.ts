@@ -8,6 +8,7 @@ async function GET(req: Request): Promise<Response> {
     const queries = req.queries
     const openaiApiKey = (secrets.openaiApiKey) ? secrets.openaiApiKey as string : ''
     const openai = new OpenAI({ apiKey: openaiApiKey })
+    // Choose from any model listed here https://platform.openai.com/docs/models
     const openAiModel = (queries.openAiModel) ? queries.openAiModel[0] : 'gpt-4o';
     const query = (queries.chatQuery) ? queries.chatQuery[0] as string : 'Who are you?'
 

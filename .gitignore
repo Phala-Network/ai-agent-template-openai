@@ -21,3 +21,7 @@ dist
 polkadot-account.json
 
 tmp
+
+logs
+secrets
+latestDeployment.json
