@@ -6,8 +6,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "phat-fn build --experimentalAsync",
-    "test": "tsx tests/test.ts",
+    "build": "tsup --config tsup.config.ts",
+    "test": "vitest",
+    "dev": "tsx watch src/index.ts",
     "set-secrets": "tsx scripts/setSecrets.ts",
     "lint": "tsc --noEmit",
     "publish-agent": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
@@ -21,9 +22,13 @@
     "thirdweb": "^5.32.3",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
+    "vitest": "^2.1.5",
     "wyhash": "^1.0.0"
   },
   "dependencies": {
-    "openai": "^4.56.0"
+    "@hono/node-server": "^1.13.7",
+    "hono": "^4.6.11",
+    "openai": "^4.56.0",
+    "tsup": "^8.3.5"
   }
 }

@@ -1,14 +1,13 @@
 <div align="center">
   <a href="https://github.com/Phala-Network/ai-agent-template-openai">
     <h1>AI Agent Contract Template with OpenAI</h1>
-    <img height="320" src="./public/AI-Agent-Contract.jpg" />
-    <br />
+    <img height="320" src="https://github.com/user-attachments/assets/275831c8-50dd-4cf3-b07a-9414e292e0e0" />
+
+
   </a>
-  <a href="https://platform.openai.com/docs/api-reference">
-    <img height="32" src="public/powered-by-openai-badge-filled-on-light.svg" />
-    <br />
-  </a>
+  
   <p align="center">
+    <br><br>
     Host your AI Agent Contract on Phala's decentralized serverless cloud.
     <br />
     <a href="https://github.com/Phala-Network/ai-agent-template-openai"><strong>Explore the docs »</strong></a>
